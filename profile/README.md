@@ -34,6 +34,8 @@ Audit-grade fractal dimension estimator with refusal semantics. Refuses to emit 
 
 ## Contributing
 
+> *The knowledge is free, the community is open. If you wish to support our mission, [buy a t-shirt](https://projectnavi.printful.me/).* 🐘
+
 PRs welcome. See [CONTRIBUTING.md](https://github.com/Project-Navi/.github/blob/main/CONTRIBUTING.md) for guidelines.
 
 Questions? [legal@projectnavi.ai](mailto:legal@projectnavi.ai) for licensing, [security@projectnavi.ai](mailto:security@projectnavi.ai) for security.
