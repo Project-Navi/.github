@@ -4,7 +4,7 @@ Open-source AI security. Zero trust architecture and mathematical governance.
 
 We build security infrastructure for teams deploying AI systems - tools that make governance native to the development process, not an afterthought.
 
-We don't compete with AI companies. We make their deployments safer. Our tools sit at the boundaries - between your model and untrusted input, between your code and production, between your repo and your first commit. We're infrastructure, not product
+We don't compete with AI companies. We make their deployments safer. Our tools sit at the boundaries - between your model and untrusted input, between your code and production, between your repo and your first commit. We're infrastructure, not product.
 
 ---
 
