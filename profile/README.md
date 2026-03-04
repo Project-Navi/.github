@@ -25,9 +25,10 @@ Audit-grade fractal dimension estimator with refusal semantics. Refuses to emit 
 ## Trust & Security
 
 - No trackers, no analytics
-- Security contact: **security@projectnavi.ai**
-- Vulnerability disclosure: **projectnavi.ai/trust**
-- PGP key: **security.txt**
+- Security contact: [security@projectnavi.ai](mailto:security@projectnavi.ai)
+- Vulnerability disclosure: [projectnavi.ai/trust](https://www.projectnavi.ai/trust)
+- PGP key: [`/.well-known/pgp-key.txt`](https://www.projectnavi.ai/.well-known/pgp-key.txt) (fingerprint: `402E C296 1A72 CBFF 63B8 FEE9 A42A 76A1 C696 FF08`)
+- Machine-readable: [`/.well-known/security.txt`](https://www.projectnavi.ai/.well-known/security.txt)
 
 ---
 
@@ -35,7 +36,7 @@ Audit-grade fractal dimension estimator with refusal semantics. Refuses to emit 
 
 PRs welcome. See **CONTRIBUTING.md** in each repo for guidelines.
 
-Questions? **legal@projectnavi.ai** for licensing, **security@projectnavi.ai** for security.
+Questions? [legal@projectnavi.ai](mailto:legal@projectnavi.ai) for licensing, [security@projectnavi.ai](mailto:security@projectnavi.ai) for security.
 
 ---
 
@@ -56,7 +57,7 @@ You don't need to understand any of this to use the tools. But if you're curious
 ## License
 
 Dual license: AGPL-3.0 (open source) or commercial license.
-Terms & Privacy: **projectnavi.ai/legal**
+Terms & Privacy: [projectnavi.ai/legal](https://www.projectnavi.ai/legal)
 
 ---
 
