@@ -10,17 +10,20 @@ We don't compete with AI companies. We make their deployments safer. Our tools s
 
 ## What We Ship
 
+### [cd-formalization](https://github.com/Project-Navi/cd-formalization)
+**Machine-verified proof** that self-sustaining coherence configurations exist in nonlinear elliptic PDE systems - formalizing, for the first time, the mathematical conditions under which autopoietic closure can emerge. Lean 4 against Mathlib v4.28.0. **Eleven theorems proved, zero sorry (no unfinished proofs), 3000+ build jobs clean.** Where Mathlib lacks infrastructure (Schauder estimates, maximum principles, sub/super-solution theory), the axiom boundary is explicit and auditable via a **single typeclass**. Algebraic core proofs were synthesized using Aristotle (Harmonic) - human architecture, machine search, **compiler as final arbiter**. The underlying theory is in the [paper](https://github.com/Project-Navi/navi-creative-determinant/blob/main/paper/creative_determinant.pdf).
+
 ### [navi-sanitize](https://github.com/Project-Navi/navi-sanitize)
-Deterministic input sanitization for untrusted text in LLM pipelines. Strips homoglyphs, invisible Unicode, null bytes, template injection, and path traversal vectors. Zero dependencies. Python 3.12+. Live on [PyPI](https://pypi.org/project/navi-sanitize/).
+Deterministic **input sanitization for untrusted text** in LLM pipelines. Strips homoglyphs, invisible Unicode, null bytes, template injection, and path traversal vectors. **Zero dependencies**. Python 3.12+. Live on [PyPI](https://pypi.org/project/navi-sanitize/).
 
 ### [grippy](https://github.com/Project-Navi/grippy-code-review)
-AI-powered PR review agent with a deterministic security rule engine. Indexes your codebase into a knowledge graph for context-aware analysis. Runs security rules before the model touches the diff. Structured findings, severity scores, pass/fail verdicts. Works with any model - GPT, Claude, or local.
+AI-powered PR review agent with a **deterministic security rule engine**. Indexes your codebase into a **knowledge graph** for context-aware analysis. Runs security rules before the model touches the diff. Structured findings, severity scores, pass/fail verdicts. Works with any model.
 
 ### [navi-bootstrap](https://github.com/Project-Navi/navi-bootstrap)
-Spec-driven repo scaffolding that ships CI, security scanning, code review, and release pipelines in a single command. Jinja2 engine with 7 template packs. Define your standards once, apply them everywhere. Python 3.12+. Live on [PyPI](https://pypi.org/project/navi-bootstrap/).
+Spec-driven repo scaffolding that ships CI, security scanning, code review, and release pipelines in a single command. Jinja2 engine with 7 template packs. **Define your standards once, apply them everywhere**. Python 3.12+. Live on [PyPI](https://pypi.org/project/navi-bootstrap/).
 
 ### navi-fractal *(coming soon)*
-Audit-grade fractal dimension estimator with refusal semantics. Refuses to emit data without mathematically verified scaling regimes.
+Audit-grade **fractal dimension estimator** with refusal semantics. Refuses to emit data without mathematically verified scaling regimes.
 
 ---
 
