@@ -1,0 +1,115 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# Copyright (c) 2025-2026 Project Navi contributors
+name: Build
+
+on:
+  workflow_call:
+    inputs:
+      tag_name:
+        description: "Git tag for the release"
+        required: true
+        type: string
+      package_name:
+        description: "Python package name for smoke test import"
+        required: true
+        type: string
+      python_version:
+        description: "Python version to build with"
+        required: false
+        type: string
+        default: "3.12"
+
+permissions: {}
+
+jobs:
+  build:
+    name: Build and attest
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
+      attestations: write
+    steps:
+      - name: Harden runner
+        uses: step-security/harden-runner@a90bcbc6539c36a85cdfeb73f7e2f433735f215b  # v2.15.0
+        with:
+          egress-policy: audit
+
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405  # v6.2.0
+        with:
+          python-version: ${{ inputs.python_version }}
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@5a095e7a2014a4212f075830d4f7277575a9d098  # v7.3.1
+
+      - name: Build package
+        run: uv build
+
+      - name: Smoke test
+        env:
+          PKG_NAME: ${{ inputs.package_name }}
+        run: |
+          python -m venv .venv-smoke
+          .venv-smoke/bin/pip install dist/*.whl
+          .venv-smoke/bin/python -c "import $PKG_NAME"
+
+      - name: Generate SBOM (CycloneDX)
+        run: |
+          pip install cyclonedx-bom==4.7.0
+          cyclonedx-py environment -o sbom.cdx.json --output-format json
+
+      - name: Generate SBOM (SPDX)
+        uses: anchore/sbom-action@17ae1740179002c89186b61233e0f892c3118b11  # v0.23.0
+        with:
+          artifact-name: sbom.spdx.json
+          output-file: sbom.spdx.json
+
+      - name: Generate license report
+        run: |
+          pip install pip-licenses==5.0.0
+          pip-licenses --format=csv --output-file=licenses.csv
+          pip-licenses --format=plain --output-file=licenses.txt
+
+      - name: Generate release notes
+        run: |
+          pip install git-cliff==2.8.0
+          git cliff --latest --output RELEASE_NOTES.md || echo "No release notes generated"
+
+      - name: Attest build provenance
+        uses: actions/attest-build-provenance@a2bbfa25375fe432b6a289bc6b6cd05ecd0c4c32  # v4.1.0
+        with:
+          subject-path: "dist/*"
+
+      - name: Upload dist
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f  # v7.0.0
+        with:
+          name: dist
+          path: dist/
+
+      - name: Upload SBOMs
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f  # v7.0.0
+        with:
+          name: sbom
+          path: |
+            sbom.cdx.json
+            sbom.spdx.json
+
+      - name: Upload licenses
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f  # v7.0.0
+        with:
+          name: licenses
+          path: |
+            licenses.csv
+            licenses.txt
+
+      - name: Upload release notes
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f  # v7.0.0
+        with:
+          name: release-notes
+          path: RELEASE_NOTES.md
