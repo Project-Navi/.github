@@ -61,7 +61,7 @@ jobs:
 
       - name: Generate SBOM (CycloneDX)
         run: |
-          pip install cyclonedx-bom==4.7.0
+          pip install cyclonedx-bom==4.6.1
           cyclonedx-py environment -o sbom.cdx.json --output-format json
 
       - name: Generate SBOM (SPDX)
