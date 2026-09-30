@@ -1,0 +1,4 @@
+# All workflow changes require human approval — navi-bot must not self-approve governance
+.github/workflows/ @Fieldnote-Echo
+.github/workflow-templates/ @Fieldnote-Echo
+CODEOWNERS @Fieldnote-Echo

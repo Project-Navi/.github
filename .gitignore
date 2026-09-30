@@ -1,0 +1,420 @@
+# =============================================================================
+# Project Navi - Hierarchical .gitignore
+# Defense-in-depth: Block dangerous patterns everywhere in tree
+# =============================================================================
+
+# =============================================================================
+# SECTION 1: AI AGENT & DEVELOPMENT ARTIFACTS (CRITICAL - BLOCK EVERYWHERE)
+# =============================================================================
+
+# Claude Code / Anthropic agent artifacts
+**/.claude-flow/
+**/.claude/
+**/claude-flow/
+**/.anthropic/
+
+# WMC (World Model Capital) routing artifacts
+**/.wmc/
+**/wmc/
+
+# Swarm coordination artifacts
+**/.swarm/
+**/swarm/
+**/.hive-mind/
+**/hive-mind/
+
+# Serena IDE artifacts
+**/.serena/
+
+# Other agent/AI tool artifacts
+**/.cursor/
+**/.continue/
+**/.aider/
+**/.copilot/
+**/.tabnine/
+**/.kite/
+**/.codeium/
+
+# Memory databases (agent state)
+**/memory.db
+**/memory.db-journal
+**/memory.db-shm
+**/memory.db-wal
+**/*.sqlite-journal
+
+# Audit logs (agent decision trails)
+**/audit.jsonl
+**/audit.log
+
+# =============================================================================
+# SECTION 2: SECRETS & CREDENTIALS (NEVER COMMIT)
+# =============================================================================
+
+# Environment files
+.env
+.env.*
+!.env.example
+!.env.template
+.dev.vars
+*.local
+
+# API keys and secrets
+**/secrets/
+**/.secrets/
+**/credentials/
+**/.credentials/
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+
+# Cloud provider credentials
+.aws/
+.azure/
+.gcp/
+google-credentials.json
+service-account*.json
+
+# SSH keys (should never be in repo)
+id_rsa*
+id_ed25519*
+id_ecdsa*
+*.ppk
+
+# =============================================================================
+# SECTION 3: NODE.JS / JAVASCRIPT
+# =============================================================================
+
+# Dependencies
+node_modules/
+jspm_packages/
+bower_components/
+web_modules/
+
+# Build output
+dist/
+build/
+out/
+.next/
+.nuxt/
+.output/
+.vite/
+.svelte-kit/
+.vercel/
+.netlify/
+
+# Package manager
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+.pnpm-store/
+.yarn/
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# Cache
+.npm/
+.eslintcache
+.stylelintcache
+.parcel-cache/
+.cache/
+*.tsbuildinfo
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Runtime
+*.pid
+*.seed
+*.pid.lock
+
+# Test & coverage
+coverage/
+.nyc_output/
+lib-cov/
+*.lcov
+
+# TypeScript
+*.tsbuildinfo
+
+# =============================================================================
+# SECTION 4: PYTHON
+# =============================================================================
+
+# Byte-compiled
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+.env/
+.conda/
+*.conda
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Testing
+.tox/
+.nox/
+.coverage
+.coverage.*
+htmlcov/
+.hypothesis/
+.pytest_cache/
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+
+# Type checkers
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+.pytype/
+.ruff_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# =============================================================================
+# SECTION 5: CLOUDFLARE WORKERS / WRANGLER
+# =============================================================================
+
+.wrangler/
+.dev.vars
+wrangler.toml.local
+
+# =============================================================================
+# SECTION 6: IDE / EDITORS
+# =============================================================================
+
+# JetBrains (IntelliJ, PyCharm, WebStorm, etc.)
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+.idea_modules/
+
+# VS Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+*.code-workspace
+.history/
+
+# Vim/Neovim
+*.swp
+*.swo
+*.swn
+*~
+.netrwhist
+tags
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# Sublime Text
+*.sublime-workspace
+*.sublime-project
+
+# =============================================================================
+# SECTION 7: OPERATING SYSTEMS
+# =============================================================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# =============================================================================
+# SECTION 8: LOGS & TEMPORARY FILES
+# =============================================================================
+
+*.log
+logs/
+*.tmp
+*.temp
+tmp/
+temp/
+*.bak
+*.backup
+*.orig
+
+# =============================================================================
+# SECTION 9: DATABASE & DATA FILES
+# =============================================================================
+
+*.sqlite
+*.sqlite3
+*.db
+!*.db.example
+*.sql
+!schema.sql
+!migrations/*.sql
+
+# Redis
+dump.rdb
+*.rdb
+
+# =============================================================================
+# SECTION 10: DOCUMENTATION BUILD
+# =============================================================================
+
+docs/_build/
+site/
+.docusaurus/
+.vitepress/dist/
+
+# =============================================================================
+# SECTION 11: SECURITY SCANNING & AUDIT ARTIFACTS
+# =============================================================================
+
+# FCPA audit outputs (should be reviewed, not committed blindly)
+.fcpa_audit/
+
+# Dependency check reports
+dependency-check-report.*
+.snyk
+
+# =============================================================================
+# SECTION 12: MISCELLANEOUS
+# =============================================================================
+
+# Archives (usually shouldn't be in repo)
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+
+# Compiled binaries
+*.exe
+*.dll
+*.dylib
+*.so
+*.o
+*.a
+
+# Source maps (optional - uncomment if you don't want them)
+# *.map
+# *.js.map
+# *.css.map
+
+# PDF metadata artifacts (LaTeX)
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+
+# =============================================================================
+# SECTION 13: PROJECT-SPECIFIC INCLUDES (whitelist patterns)
+# =============================================================================
+
+# Keep configuration examples
+!.env.example
+!.env.template
+!wrangler.toml.example
+
+# Keep documentation
+!README.md
+!CHANGELOG.md
+!LICENSE
+!CONTRIBUTING.md
+
+# Keep schema files
+!*.schema.json
+!*.prisma
