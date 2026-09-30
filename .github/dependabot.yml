@@ -1,21 +1,8 @@
-# Dependabot configuration for Project Navi repos
-# This is inherited by all repos in the org
+# Dependabot configuration for this repository only. It is not inherited:
+# each repo in the org keeps its own dependabot.yml.
 
 version: 2
 updates:
-  # Python dependencies
-  - package-ecosystem: "pip"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-      day: "monday"
-    open-pull-requests-limit: 5
-    labels:
-      - "dependencies"
-      - "security"
-    commit-message:
-      prefix: "deps"
-
   # GitHub Actions
   - package-ecosystem: "github-actions"
     directory: "/"
